@@ -49,9 +49,9 @@ class Generic(Strategy):
             is_blockable = True
             # Mixed block
             # TO DO: if n cards on board => 3 block with minimum sufficient stats that has much attack to kill 
-            if enemy_card.health <= blocking_card.attack \
-               or blocking_card.attack == 1 and enemy_card.health == 1 :
-               #or n_cards_on_board == 6 and blocking_card.attack <= 2 :
+            if enemy_card.health <= blocking_card.attack or \
+               blocking_card.attack == 1 and enemy_card.health == 1 :
+               #n_cards_on_board == 6 and blocking_card.attack <= 2 :
                 for ally_card in ally_cards:  # Check if card is already blocked
                     if abs(ally_card.get_pos()[0] - enemy_card.get_pos()[0]) < 10:
                         is_blockable = False
@@ -63,21 +63,11 @@ class Generic(Strategy):
 
     def playable_card(self, playable_cards, game_state, cards_on_board):
         """Return the first playable highest cost card"""
-
         cards_sorted = sorted(playable_cards, key=lambda playable_card: playable_card.cost, reverse=True)
         n_cards_on_board = len(cards_on_board["cards_board"])
-
-        # Board conditions
-        too_few = n_cards_on_board <= 1
-
         for playable_card_in_hand in cards_sorted:
-
-            name = playable_card_in_hand.get_name()
             n_summon = 2 if "summon a" in playable_card_in_hand.description_raw.lower() else 1
-            too_much = n_cards_on_board + n_summon > 6
-
-            if name == "Crowd Favorite" and too_few \
-            or too_much:
+            if n_cards_on_board + n_summon > 6:
                 continue # DO NOT play the card
             if game_state == GameState.Attack_Turn or game_state == GameState.Defend_Turn:
                 return playable_card_in_hand
