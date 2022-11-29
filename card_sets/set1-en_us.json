@@ -5282,7 +5282,7 @@
       "Noxus"
     ],
     "attack": 0,
-    "cost": 5,
+    "cost": 6,
     "health": 0,
     "description": "Deal 4 to the enemy Nexus.",
     "descriptionRaw": "Deal 4 to the enemy Nexus.",

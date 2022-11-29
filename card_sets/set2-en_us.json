@@ -4979,7 +4979,7 @@
       "Noxus"
     ],
     "attack": 5,
-    "cost": 8,
+    "cost": 7,
     "health": 8,
     "description": "When I'm summoned, draw a <link=card.champ1><style=AssociatedCard>Swain</style></link>.\r\n<link=vocab.RoundStart><style=Vocab>Round Start</style></link>: Deal 1 to the enemy Nexus 3 times.",
     "descriptionRaw": "When I'm summoned, draw a Swain.\r\nRound Start: Deal 1 to the enemy Nexus 3 times.",
