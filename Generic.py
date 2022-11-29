@@ -50,7 +50,8 @@ class Generic(Strategy):
             # Mixed block
             # TO DO: if n cards on board => 3 block with minimum sufficient stats that has much attack to kill 
             if enemy_card.health <= blocking_card.attack \
-               or blocking_card.attack == 1 and enemy_card.health == 1 :
+               or blocking_card.attack == 1 and enemy_card.health == 1 \
+               or blocking_card.name == "Spiderling":
                #or n_cards_on_board == 6 and blocking_card.attack <= 2 :
                 for ally_card in ally_cards:  # Check if card is already blocked
                     if abs(ally_card.get_pos()[0] - enemy_card.get_pos()[0]) < 10:
