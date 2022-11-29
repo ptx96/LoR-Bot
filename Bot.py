@@ -253,9 +253,12 @@ class Bot:
         sleep(0.3)
         self.mouse_handler.release(x, int(y - 3 * self.window_height / 7))
         sleep(0.3)
-        if card.is_spell():
+        if card.is_spell() and card.name == "Eye of Nagakabouros":
+            sleep(1)
+        elif card.is_spell():
             sleep(1)
             keyboard.send("space")
+
 
     def select_deck(self):
         vals_ai = [(0.04721, 0.33454), (0.15738, 0.33401), (0.33180, 0.30779), (0.83213, 0.89538)]
